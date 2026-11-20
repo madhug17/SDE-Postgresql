@@ -1,0 +1,6 @@
+- name: Install dependencies
+  run: pip install -r requirements.txt
+- name: Run database migration
+  run: alembic upgrade head
+  env:
+    DATABASE_URL: ${{ secrets.postgresql+psycopg2://postgres:1658@localhost:5432/alembic_practice }}
